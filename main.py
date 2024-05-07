@@ -18,7 +18,8 @@ def create_memo(memo:Memo):
 
 @app.get("/memos")
 def read_memo():
-    return memos
+    sorted_memos = sorted(memos, key=lambda memo: memo.id, reverse=True)
+    return sorted_memos
 
 
 @app.put("/memos/{id}")
